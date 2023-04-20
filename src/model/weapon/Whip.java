@@ -2,11 +2,12 @@ package model.weapon;
 
 import util.DiceRoller;
 
-public class Whip implements Weapon {
+public class Whip extends Weapon {
 
     @Override
     public int dealDamage() {
-        return DiceRoller.roll(4, 1);
+        DiceRoller roller = DiceRoller.getInstance();
+        return roller.roll(4, 1);
     }
     
 }

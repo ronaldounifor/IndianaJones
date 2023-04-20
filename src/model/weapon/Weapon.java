@@ -1,5 +1,7 @@
 package model.weapon;
 
-public interface Weapon {
-    int dealDamage();
+import model.Item;
+
+public abstract class Weapon extends Item {
+    public abstract int dealDamage();
 }
