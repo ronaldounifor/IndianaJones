@@ -1,17 +1,21 @@
-import model.Bag;
-import model.Hat;
+import combat.CombatController;
+import combat.strategy.DifficultTerrainStrategy;
+import combat.strategy.HigherGroundStrategy;
 import model.weapon.Revolver;
-import model.weapon.Whip;
+import model.weapon.Weapon;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Bag mochila = new Bag();
+        Weapon arma = new Revolver();
 
-        mochila.placeItem(new Revolver());
-        mochila.placeItem(new Whip());
-        mochila.placeItem(new Hat());
+        CombatController combate = new CombatController();
+        combate.addStrategy(new DifficultTerrainStrategy());
+        combate.addStrategy(new HigherGroundStrategy());
 
-        Bag sacola = new Bag();
-        sacola.placeItem(mochila);
+        int danoOriginal = arma.dealDamage();
+
+        System.out.println("Dano original: "+danoOriginal);
+        int danoFinal = combate.applyDamage(danoOriginal);
+        System.out.println("Dano final: "+danoFinal);
     }
 }
