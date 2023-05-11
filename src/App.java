@@ -1,21 +1,24 @@
-import combat.CombatController;
-import combat.strategy.DifficultTerrainStrategy;
-import combat.strategy.HigherGroundStrategy;
-import model.weapon.Revolver;
-import model.weapon.Weapon;
+import java.util.Arrays;
+import java.util.List;
+
+import iterator.AdversariosLista;
+import iterator.AdversariosVetor;
+import model.Imagem;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Weapon arma = new Revolver();
+        AdversariosLista monstros = new AdversariosLista();
+        AdversariosVetor veiculos = new AdversariosVetor();
 
-        CombatController combate = new CombatController();
-        combate.addStrategy(new DifficultTerrainStrategy());
-        combate.addStrategy(new HigherGroundStrategy());
-
-        int danoOriginal = arma.dealDamage();
-
-        System.out.println("Dano original: "+danoOriginal);
-        int danoFinal = combate.applyDamage(danoOriginal);
-        System.out.println("Dano final: "+danoFinal);
+        for (Imagem imagem : monstros.getImagens())
+            System.out.println(imagem);
+        
+        Imagem[] imagens = veiculos.getImagens();
+        for (int i = 0; i < imagens.length; i++)
+            System.out.println(imagens[i]);
+        
+        
     }
+
+    
 }
