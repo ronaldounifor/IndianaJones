@@ -2,18 +2,14 @@ package iterator;
 
 import model.Imagem;
 
-public class AdversariosVetor  extends Adversarios {
+public class Veiculos  implements Adversarios {
     private Imagem[] imagens;
     
     public Imagem[] getImagens() {
         return imagens;
     }
 
-    public void setImagens(Imagem[] imagens) {
-        this.imagens = imagens;
-    }
-
-    public AdversariosVetor() {
+    public Veiculos() {
         imagens = new Imagem[3];
         imagens[0] = new Imagem("Jeep", 40, 10);
         imagens[1] = new Imagem("Nave", 82, 300);
@@ -22,6 +18,6 @@ public class AdversariosVetor  extends Adversarios {
 
     @Override
     public Iterador criarIterador() {
-        return new IteradorVetor();
+        return new IteradorVetor(imagens);
     }
 }

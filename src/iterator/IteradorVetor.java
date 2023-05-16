@@ -2,23 +2,18 @@ package iterator;
 
 import model.Imagem;
 
-public class IteradorVetor extends Iterador {
+public class IteradorVetor implements Iterador {
     private Imagem[] imagens;
     private int atual;
 
-    public IteradorVetor() {
-        imagens = new Imagem[10];
-        atual = -1;
-    }
-
-    public IteradorVetor(int tamanho) {
-        imagens = new Imagem[tamanho];
+    public IteradorVetor(Imagem[] imagens) {
+        this.imagens = imagens;
         atual = -1;
     }
 
     @Override
     public boolean temProximo() {
-        return imagens[atual + 1] != null;
+        return atual + 1 < imagens.length;
     }
 
     @Override

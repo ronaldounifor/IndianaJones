@@ -4,18 +4,14 @@ import java.util.ArrayList;
 
 import model.Imagem;
 
-public class AdversariosLista extends Adversarios {
+public class Monstros implements Adversarios {
     private ArrayList<Imagem> imagens;
     
     public ArrayList<Imagem> getImagens() {
         return imagens;
     }
 
-    public void setImagens(ArrayList<Imagem> imagens) {
-        this.imagens = imagens;
-    }
-
-    public AdversariosLista() {
+    public Monstros() {
         imagens = new ArrayList<>();
         imagens.add(new Imagem("Esqueleto", 10, 10));
         imagens.add(new Imagem("Alien", 100, 1));
@@ -24,13 +20,8 @@ public class AdversariosLista extends Adversarios {
 
     @Override
     public Iterador criarIterador() {
-        return new IteradorLista();
+        return new IteradorLista(imagens);
     }
 
-    public void adicionarImagem(Imagem imagem) {
-        imagens.add(imagem);
-    }
 
-    
-    
 }

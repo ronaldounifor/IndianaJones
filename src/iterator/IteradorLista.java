@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 import model.Imagem;
 
-public class IteradorLista extends Iterador {
+public class IteradorLista implements Iterador {
     private ArrayList<Imagem> imagens;
     private int atual;
-
-    public IteradorLista() {
-        imagens = new ArrayList<>();
-        atual = -1;
-    }
     
+    public IteradorLista(ArrayList<Imagem> imagens) {
+        this.imagens = imagens;
+        this.atual = -1;
+    }
+
     @Override
     public boolean temProximo() {
-        return imagens.get(atual + 1) != null;
+        return atual + 1 < imagens.size();
     }
 
     @Override
