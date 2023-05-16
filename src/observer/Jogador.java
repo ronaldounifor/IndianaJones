@@ -34,4 +34,9 @@ public class Jogador extends Observador {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    @Override
+    public void atualizar(Observavel observavel) {
+        System.out.println(nome + " ficou sabendo que "+observavel);
+    }
 }
