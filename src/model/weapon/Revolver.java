@@ -1,13 +1,15 @@
 package model.weapon;
 
-import util.DiceRoller;
+import model.state.Operante;
 
 public class Revolver extends Weapon {
 
-    @Override
-    public int dealDamage() {
-        DiceRoller roller = DiceRoller.getInstance();
-        return roller.roll(4, 4);
+    public Revolver() {
+        this.setCurrentState(new Operante(this));
+        this.setAmmo(6);
+        this.setBasePrice(200);
+        this.setDurability(10);
+        this.setBaseDamage(10);
     }
     
 }

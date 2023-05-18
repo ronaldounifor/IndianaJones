@@ -1,23 +1,13 @@
-import observer.Jogador;
-import observer.Masmorra;
+import model.weapon.Flamethrower;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Masmorra torreAlien = new Masmorra(0, "Pistola Laser", 5);
-        Masmorra baseNazista = new Masmorra(1, "Metralhadora", 1);
-        
-        Jogador ronaldo = new Jogador(0, 9001, "Ronaldo");
-        Jogador indiAnna = new Jogador(1, 2, "Anna");
-        Jogador ford = new Jogador(2, 9002, "Harrison");
+        Flamethrower lancaChamas = new Flamethrower();
 
-        torreAlien.observar(ronaldo);
-        torreAlien.observar(indiAnna);
-        torreAlien.observar(ford);
-        baseNazista.observar(ford);
+        lancaChamas.setWet(true);
 
-        torreAlien.atualizar();
-        baseNazista.atualizar();
-        
+        System.out.println("Preço: "+lancaChamas.getPrice());
+        System.out.println("Dano: "+lancaChamas.getDamage());
     }
 
     

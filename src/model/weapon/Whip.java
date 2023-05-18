@@ -1,13 +1,15 @@
 package model.weapon;
 
-import util.DiceRoller;
+import model.state.Operante;
 
 public class Whip extends Weapon {
 
-    @Override
-    public int dealDamage() {
-        DiceRoller roller = DiceRoller.getInstance();
-        return roller.roll(4, 1);
+    public Whip() {
+        this.setCurrentState(new Operante(this));
+        this.setAmmo(Integer.MAX_VALUE);
+        this.setBasePrice(100);
+        this.setDurability(10);
+        this.setBaseDamage(4);
     }
-    
+
 }
